@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles/header.css";
+import hamburger from "./assets/hamburger.svg";
 function Header() {
   return (
     <>
@@ -13,7 +14,9 @@ function Header() {
           <div>Negozio</div>
           <div>Chi siamo</div>
           <div className="profile-div">Profilo</div>
-          <div><img src="" alt=""></img></div>
+          <div className="hamburger-div">
+            <img className="hamburger" src={hamburger} alt="hamburger-menu"></img>
+          </div>
         </div>
       </header>
     </>

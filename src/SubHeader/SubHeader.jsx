@@ -6,9 +6,11 @@ function SubHeader() {
   return (
     <>
       <section className="sub-header">
-        <div>
-          <img className="baldur" src={baldur} alt="baldur" />
-          <button>SCONTO 40%</button>
+        <div className="sub-header-div1">
+          <div className="sub-header-div2">
+            <img className="baldur" src={baldur} alt="baldur" />
+            <button>SCONTO 40%</button>
+          </div>
         </div>
       </section>
     </>

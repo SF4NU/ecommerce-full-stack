@@ -8,7 +8,8 @@
 body {
   margin: 0;
   font-family: Anta, Arial;
-  
+  width: 100dvw;
+  height: 100dvh;
 }
 body {
   margin: auto;
