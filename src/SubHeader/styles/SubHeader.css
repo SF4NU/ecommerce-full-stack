@@ -1,0 +1,55 @@
+.sub-header {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80dvw;
+  position: relative;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.baldur {
+  width: 100vw;
+  object-fit: contain;
+}
+.sub-header div {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sub-header button {
+  position: absolute;
+  width: 20rem;
+  height: 5rem;
+  bottom: 50px;
+  left: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 2.3rem;
+  color: #fff;
+  background: linear-gradient(49deg, #15f5ba 0%, #836fff 71%);
+  padding: 10px 30px;
+  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  transition: 700ms;
+  transform: translateY(0);
+  cursor: pointer;
+}
+
+.sub-header button:hover {
+  transform: scale(1.05);
+}
+.sub-header button:active {
+  background: #836fff;
+  color: #15f5ba;
+}
+@media only screen and (max-width: 600px) {
+  .sub-header button {
+    scale: .4;
+    left: 0;
+    bottom: 0;
+  }
+}

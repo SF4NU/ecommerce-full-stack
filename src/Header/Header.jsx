@@ -13,6 +13,7 @@ function Header() {
           <div>Negozio</div>
           <div>Chi siamo</div>
           <div className="profile-div">Profilo</div>
+          <div><img src="" alt=""></img></div>
         </div>
       </header>
     </>

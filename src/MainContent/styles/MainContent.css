@@ -1,0 +1,38 @@
+.main-cards-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  gap: 20px;
+}
+.game-cards {
+  width: 80vw;
+  margin: auto;
+  margin-top: 100px;
+}
+.search-bar-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5em;
+}
+.search-bar-div input {
+  padding: 10px 50px;
+  box-sizing: border-box;
+  border: none;
+  transition: scale 0.4s;
+  font-size: 20px;
+  border-radius: 50px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  background: rgb(131,111,255);
+  background: radial-gradient(circle, rgba(131,111,255,1) 0%, rgba(33,25,81,1) 100%); 
+  color: #15F5BA;
+}
+.search-bar-div input:focus {
+  outline: none;
+  scale: 1.1;
+}
+.search-bar-div input::placeholder {
+  font-size: 1rem;
+  color: #15F5BA;
+  opacity: 0.8;
+}
