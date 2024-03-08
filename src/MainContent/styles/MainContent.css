@@ -16,9 +16,12 @@
   margin-bottom: 5em;
 }
 .search-bar-div input {
-  padding: 10px 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
   box-sizing: border-box;
   border: none;
+  width: 80%;
   transition: scale 0.4s, filter 0.3s;
   font-size: 20px;
   border-radius: 50px;
@@ -44,7 +47,9 @@
   opacity: 0.8;
 }
 .fetch-games-button {
-  padding: 10px 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 50%;
   box-sizing: border-box;
   border: none;
   transition: scale 0.15s, filter 0.3s;
@@ -58,7 +63,7 @@
     rgba(33, 25, 81, 1) 100%
   );
   color: #15f5ba;
-  margin-left: 20px;
+  margin-left: 10px;
   cursor: pointer;
 }
 .fetch-games-button:hover {
