@@ -42,17 +42,32 @@ function MainContent() {
               platform1={
                 game.platforms && game.platforms.length > 0
                   ? game.platforms[0].platform.name
-                  : "n/a"
+                  : false
               }
               platform2={
                 game.platforms && game.platforms.length > 1
                   ? game.platforms[1].platform.name
-                  : "n/a"
+                  : false
               }
               platform3={
                 game.platforms && game.platforms.length > 2
                   ? game.platforms[2].platform.name
-                  : "n/a"
+                  : false
+              }
+              genre1={
+                game.genres && game.genres.length > 0
+                  ? game.genres[0].name
+                  : false
+              }
+              genre2={
+                game.genres && game.genres.length > 1
+                  ? game.genres[1].name
+                  : false
+              }
+              genre3={
+                game.genres && game.genres.length > 2
+                  ? game.genres[2].name
+                  : false
               }
             />
           ))}

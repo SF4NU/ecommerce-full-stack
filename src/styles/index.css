@@ -1,8 +1,9 @@
 :root {
   --russian-purple: #211951;
-  --purple: #836FFF;
-  --almost-white: #F0F3FF;
-  --nice-green: #15F5BA;
+  --purple: #836fff;
+  --almost-white: #f0f3ff;
+  --nice-green: #15f5ba;
+  --somewhat-pink: #ff69b4;
 }
 
 body {
@@ -15,7 +16,13 @@ body {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
-  background: linear-gradient(315deg, #836FFF 3%, #15F5BA 38%, #211951 68%, #F0F3FF 98%);
+  background: linear-gradient(
+    315deg,
+    #836fff 3%,
+    #15f5ba 38%,
+    #211951 68%,
+    #f0f3ff 98%
+  );
   animation: gradient 18s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
@@ -23,13 +30,13 @@ body {
 
 @keyframes gradient {
   0% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
   50% {
-      background-position: 100% 100%;
+    background-position: 100% 100%;
   }
   100% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
 }
 
@@ -61,22 +68,22 @@ body {
 
 @keyframes wave {
   2% {
-      transform: translateX(1);
+    transform: translateX(1);
   }
 
   25% {
-      transform: translateX(-25%);
+    transform: translateX(-25%);
   }
 
   50% {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   75% {
-      transform: translateX(-25%);
+    transform: translateX(-25%);
   }
 
   100% {
-      transform: translateX(1);
+    transform: translateX(1);
   }
 }

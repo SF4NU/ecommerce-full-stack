@@ -19,7 +19,7 @@
   padding: 10px 50px;
   box-sizing: border-box;
   border: none;
-  transition: scale 0.4s;
+  transition: scale 0.4s, filter 0.3s;
   font-size: 20px;
   border-radius: 50px;
   box-shadow: 0px 5px 10px rgb(205, 33, 228, 0.25);
@@ -30,6 +30,9 @@
     rgba(33, 25, 81, 1) 100%
   );
   color: #15f5ba;
+}
+.search-bar-div input:hover {
+  filter: brightness(1.1);
 }
 .search-bar-div input:focus {
   outline: none;
