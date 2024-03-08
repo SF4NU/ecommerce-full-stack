@@ -21,7 +21,6 @@
   padding-left: 20px;
   box-sizing: border-box;
   border: none;
-  width: 80%;
   transition: scale 0.4s, filter 0.3s;
   font-size: 20px;
   border-radius: 50px;
@@ -49,7 +48,6 @@
 .fetch-games-button {
   padding-top: 5px;
   padding-bottom: 5px;
-  width: 50%;
   box-sizing: border-box;
   border: none;
   transition: scale 0.15s, filter 0.3s;
@@ -71,4 +69,28 @@
 }
 .fetch-games-button:active {
   scale: 1.1;
+}
+@media (max-width: 568px) {
+  .fetch-games-button {
+    width: 30%;
+  }
+  .search-bar-div input {
+    width: 60%;
+  }
+}
+@media (min-width: 1200.5px) {
+  .fetch-games-button {
+    width: 10%;
+  }
+  .search-bar-div input {
+    width: 20%;
+  }
+}
+@media (min-width: 568.5px) and (max-width: 1200px) {
+  .fetch-games-button {
+    width: 20%;
+  }
+  .search-bar-div input {
+    width: 40%;
+  }
 }
