@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/GamePage.css";
 import { shortenPlatforms } from "../Cards/utils/shortenPlatforms";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { getIcons } from "../Cards/utils/getIcons";
+import { time } from "../Cards/utils/time";
+import { scrollToTop } from "../Cards/utils/scrollToTop";
 
 function GamePage({
   gameName,
@@ -30,6 +32,15 @@ function GamePage({
     setCallOnce(false);
     setGameId(null);
   }
+
+  useEffect(() => {
+    const scrollAfterMount = async () => {
+      await time(200);
+      scrollToTop();
+      console.log("done");
+    };
+    scrollAfterMount();
+  }, []);
 
   return (
     <>
@@ -78,7 +89,9 @@ function GamePage({
                 ))}
             </div> */}
           </div>
-          <div className="focus-game-bottom-details"></div>
+          <div className="focus-game-bottom-details">
+            <div></div>
+          </div>
         </div>
       </section>
     </>

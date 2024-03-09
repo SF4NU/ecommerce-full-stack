@@ -32,6 +32,8 @@
     rgba(33, 25, 81, 1) 100%
   );
   color: #15f5ba;
+  font-weight: 600;
+  font-family: Anta;
 }
 .search-bar-div input:hover {
   filter: brightness(1.1);
@@ -63,6 +65,8 @@
   color: #15f5ba;
   margin-left: 10px;
   cursor: pointer;
+  font-weight: 600;
+  font-family: Anta;
 }
 .fetch-games-button:hover {
   filter: brightness(1.1);
