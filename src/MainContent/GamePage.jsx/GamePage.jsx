@@ -6,6 +6,7 @@ import { getIcons } from "../Cards/utils/getIcons";
 import { time } from "../Cards/utils/time";
 import { scrollToTop } from "../Cards/utils/scrollToTop";
 import DOMPurify from "dompurify";
+import { esrbConverter } from "../Cards/utils/esrbConverter";
 
 function GamePage({
   gameName,
@@ -39,6 +40,7 @@ function GamePage({
       await time(200);
       scrollToTop();
       console.log("done");
+      console.log(rating);
     };
     scrollAfterMount();
   }, []);
@@ -61,6 +63,9 @@ function GamePage({
               alt={`${gameName}-image`}></img>
           </div>
           <div className="focus-game-details">
+            <span className="rating-esrb">
+              <img src={esrbConverter(rating)}></img>
+            </span>
             <div className="focus-game-details-flex"></div>
             <div>
               <span className="focus-game-title">{gameName}</span>

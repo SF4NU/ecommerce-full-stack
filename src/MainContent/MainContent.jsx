@@ -112,7 +112,7 @@ function MainContent() {
                   ? data.developers[0].name
                   : false
               }
-              rating={data.esrb_rating}
+              rating={data.esrb_rating ? data.esrb_rating.name : null}
               metacritic={data.metacritic ? data.metacritic : false}
               metacritic_url={data.metacritic_url}
               platforms={

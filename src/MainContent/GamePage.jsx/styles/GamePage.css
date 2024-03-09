@@ -63,6 +63,7 @@
   justify-self: start;
   margin-left: 70px;
   grid-area: div2;
+  position: relative;
 }
 .focus-game-title {
   width: fit-content;
@@ -149,4 +150,9 @@
   margin-left: 40px;
   box-sizing: border-box;
   padding: 40px;
+}
+.rating-esrb {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }
