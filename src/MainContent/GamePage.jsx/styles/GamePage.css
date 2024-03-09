@@ -23,16 +23,21 @@
   color: var(--nice-green);
 }
 .focus-game-wrapper {
-  margin-left: auto;
-  margin-right: auto;
   display: grid;
-  grid-template-columns: 400px 400px;
-  justify-items: center;
-  /* grid-template-rows: repeat(auto-fit); */
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 400px 1fr;
+  gap: 20px 0px;
+  grid-template-areas:
+    "div1 div2"
+    "div3 div3";
+  align-items: center;
 }
 .focus-game-image-wrapper {
-  max-width: 400px;
-  max-height: 300px;
+  max-width: 450px;
+  max-height: 400px;
+  margin-right: 20px;
+  grid-area: div1;
 }
 .focus-game-image {
   object-fit: cover;
@@ -54,7 +59,10 @@
   -moz-user-select: -moz-none;
   display: flex;
   align-items: center;
-  padding-bottom: 20px;
+  padding: 25px;
+  justify-self: start;
+  margin-left: 70px;
+  grid-area: div2;
 }
 .focus-game-title {
   width: fit-content;
@@ -96,12 +104,49 @@
   row-gap: 10px;
   width: 80%;
 }
-@media (max-width: 910px) {
+@media (max-width: 1100px) {
   .focus-game-wrapper {
-    grid-template-columns: 400px;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 400px 1fr;
+    gap: 20px 10px;
+    grid-template-areas:
+      "div1"
+      "div2"
+      "div3";
   }
   .focus-game-image-wrapper {
-    max-width: 300px;
+    max-width: 400px;
+    min-width: 250px;
+    justify-self: center;
+    margin-left: 20px;
+    margin-right: 20px;
   }
+  .focus-game-details {
+    grid-area: 2 / 1 / 3 / 2;
+    margin: auto;
+    padding: 0;
+    padding-bottom: 20px;
+  }
+  /* .focus-game-bottom-details {
+    grid-area: 3 / 1 / 4 / 2;
+    margin: auto;
+  } */
+}
+.focus-game-bottom-details {
+  min-height: 200px;
+  max-width: 800px;
+  min-width: 200px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  background: linear-gradient(49deg, #15f5ba 0%, #836fff 71%);
+  color: var(--russian-purple);
+  font-weight: 600;
+  border-radius: 20px;
+  grid-area: div3;
+  justify-self: center;
+  margin-right: 40px;
+  margin-left: 40px;
+  box-sizing: border-box;
+  padding: 40px;
 }

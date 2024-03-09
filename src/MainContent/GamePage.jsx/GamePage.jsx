@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import { getIcons } from "../Cards/utils/getIcons";
 import { time } from "../Cards/utils/time";
 import { scrollToTop } from "../Cards/utils/scrollToTop";
+import DOMPurify from "dompurify";
 
 function GamePage({
   gameName,
@@ -41,6 +42,8 @@ function GamePage({
     };
     scrollAfterMount();
   }, []);
+
+  const purifiedHTML = DOMPurify.sanitize(description);
 
   return (
     <>
@@ -90,7 +93,10 @@ function GamePage({
             </div> */}
           </div>
           <div className="focus-game-bottom-details">
-            <div></div>
+            <div>
+              <span>Descrizione: </span>
+              <div dangerouslySetInnerHTML={{ __html: purifiedHTML }}></div>
+            </div>
           </div>
         </div>
       </section>

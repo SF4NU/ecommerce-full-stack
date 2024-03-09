@@ -105,7 +105,7 @@ function MainContent() {
             <GamePage
               gameName={data.name}
               image={data.background_image}
-              description={data.description_raw}
+              description={data.description}
               secondImage={data.background_image_additional}
               developers={
                 data.developers && data.developers.length > 0
