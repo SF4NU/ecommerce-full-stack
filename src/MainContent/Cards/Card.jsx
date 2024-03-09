@@ -54,18 +54,17 @@ function Card({
                 </span>
               </div>
               <div>
-                <span className="score">
-                  <a href="#">{metacritic}</a>
-                </span>
+                <span className="score">{metacritic}</span>
               </div>
             </div>
           </div>
           <div className="platforms">
-            {platforms.slice(0, 3).map((platform, index) => (
-              <span key={index} className="platform-">
-                {shortenPlatforms(platform.platform.name)}
-              </span>
-            ))}
+            {platforms &&
+              platforms.slice(0, 3).map((platform, index) => (
+                <span key={index} className="platform-">
+                  {shortenPlatforms(platform.platform.name)}
+                </span>
+              ))}
           </div>
           <div>
             <span className="offer">Sconto {randomOffer}%</span>
@@ -74,11 +73,12 @@ function Card({
             <span className="price">{randomPrice}€</span>
           </div>
           <div className="genres-div">
-            {genres.slice(0, 3).map((genre, index) => (
-              <span key={index} className="focus-genre">
-                {genre.name}
-              </span>
-            ))}
+            {genres &&
+              genres.slice(0, 3).map((genre, index) => (
+                <span key={index} className="focus-genre">
+                  {genre.name}
+                </span>
+              ))}
           </div>
         </div>
       </div>

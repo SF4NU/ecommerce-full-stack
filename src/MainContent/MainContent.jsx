@@ -90,7 +90,9 @@ function MainContent() {
                 metacritic_url={game.metacritic_url}
                 game_id={game.id}
                 setCallOnce={setCallOnce}
-                platforms={game.platforms.length > 0 && game.platforms}
+                platforms={
+                  game.platforms && game.platforms.length >= 0 && game.platforms
+                }
                 genres={game.genres.length > 0 && game.genres}
               />
             ))}
