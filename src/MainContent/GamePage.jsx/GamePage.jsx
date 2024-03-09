@@ -61,7 +61,7 @@ function GamePage({
         </div>
         <div className="focus-game-wrapper">
           <div className="focus-game-image-wrapper">
-            <LazyLoad height={200} offset={100}>
+            <LazyLoad offset={100}>
               <img
                 className="focus-game-image"
                 src={image}
