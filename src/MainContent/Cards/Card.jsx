@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./styles/Card.css";
 import { shortenPlatforms } from "./utils/shortenPlatforms";
 import _ from "lodash";
+import LazyLoad from "react-lazy-load";
 
 function Card({
   image,
@@ -38,7 +39,9 @@ function Card({
           handleCardFocus(game_id);
         }}>
         <div className="top-half-card">
-          <img className="card-image" src={image} alt="" />
+          <LazyLoad height={200} offset={100}>
+            <img className="card-image" src={image} alt={`${name}-image`} />
+          </LazyLoad>
         </div>
         <div className="bottom-half-card">
           <div>

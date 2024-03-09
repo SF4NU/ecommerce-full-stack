@@ -98,7 +98,7 @@ function GamePage({
               <span>Dove acquistare: </span>
               {stores.length > 0 &&
                 stores.map((store, index) => (
-                  <div>
+                  <div key={index}>
                     <a
                       href={`https://${store.store.domain}`}
                       target="_blank"
