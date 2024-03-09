@@ -85,38 +85,11 @@ function MainContent() {
                 image={game.background_image}
                 name={game.name}
                 metacritic={game.metacritic}
+                metacritic_url={game.metacritic_url}
                 game_id={game.id}
                 setCallOnce={setCallOnce}
-                platform1={
-                  game.platforms && game.platforms.length > 0
-                    ? game.platforms[0].platform.name
-                    : false
-                }
-                platform2={
-                  game.platforms && game.platforms.length > 1
-                    ? game.platforms[1].platform.name
-                    : false
-                }
-                platform3={
-                  game.platforms && game.platforms.length > 2
-                    ? game.platforms[2].platform.name
-                    : false
-                }
-                genre1={
-                  game.genres && game.genres.length > 0
-                    ? game.genres[0].name
-                    : false
-                }
-                genre2={
-                  game.genres && game.genres.length > 1
-                    ? game.genres[1].name
-                    : false
-                }
-                genre3={
-                  game.genres && game.genres.length > 2
-                    ? game.genres[2].name
-                    : false
-                }
+                platforms={game.platforms.length > 0 && game.platforms}
+                genres={game.genres.length > 0 && game.genres}
               />
             ))}
           </div>
@@ -125,7 +98,28 @@ function MainContent() {
       <div className="focus-game-section">
         {!browseToggle && gameId && (
           <div className="main-page-game">
-            <GamePage gameName={data.name} image={data.background_image} />
+            <GamePage
+              gameName={data.name}
+              image={data.background_image}
+              description={data.description_raw}
+              secondImage={data.background_image_additional}
+              developers={
+                data.developers && data.developers.length > 0
+                  ? data.developers[0].name
+                  : false
+              }
+              rating={data.esrb_rating}
+              metacritic={data.metacritic ? data.metacritic : false}
+              metacritic_url={data.metacritic_url}
+              platforms={
+                data.platforms && data.platforms.length > 0
+                  ? data.platforms
+                  : []
+              }
+              stores={data.stores && data.stores.length > 0 ? data.stores : []}
+              website={data.website ? data.website : false}
+              genres={data.genres && data.genres.length > 0 ? data.genres : []}
+            />
           </div>
         )}
       </div>

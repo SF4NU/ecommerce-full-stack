@@ -118,10 +118,3 @@
   align-items: center;
   justify-content: center;
 }
-[class^="genre-"] {
-  padding: 5px 12px;
-  border-radius: 15px;
-  background-color: var(--almost-white);
-  font-size: 0.8rem;
-  margin-bottom: -10px;
-}
