@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./styles/GamePage.css";
 import { shortenPlatforms } from "../Cards/utils/shortenPlatforms";
+import "@fortawesome/fontawesome-free/css/all.css";
+import { getIcons } from "../Cards/utils/getIcons";
 
 function GamePage({
   gameName,
@@ -47,18 +49,20 @@ function GamePage({
               {platforms.length > 0 &&
                 platforms.map((platform, index) => (
                   <span className="platform-" key={index}>
-                    {platform.platform.name}
+                    {shortenPlatforms(platform.platform.name)}
+                    <span> </span>
+                    <i className={getIcons(platform.platform.name)}></i>
                   </span>
                 ))}
             </div>
-            <div className="focus-stores-div">
+            {/* <div className="focus-stores-div">
               {stores.length > 0 &&
                 stores.map((store, index) => (
                   <span className="stores" key={index}>
                     {store.store.name}
                   </span>
                 ))}
-            </div>
+            </div> */}
           </div>
           <div className="focus-game-bottom-details"></div>
         </div>

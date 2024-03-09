@@ -17,7 +17,7 @@
   border-radius: 20px;
 }
 .focus-game-details {
-  height: 300px;
+  min-height: fit-content;
   width: 300px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
   flex-direction: column;
@@ -25,13 +25,12 @@
   color: var(--russian-purple);
   font-weight: 600;
   border-radius: 20px;
-  cursor: pointer;
   transition: filter 0.5s;
-  overflow: hidden;
   user-select: none;
   -moz-user-select: -moz-none;
   display: flex;
   align-items: center;
+  padding-bottom: 20px;
 }
 .focus-game-title {
   width: fit-content;
@@ -45,14 +44,15 @@
   margin-top: 20px;
 }
 .focus-genres-div {
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   row-gap: 10px;
-  width: 80%;
+  width: 90%;
+  box-sizing: border-box;
 }
 .focus-genre {
   width: fit-content;
@@ -71,4 +71,13 @@
   justify-content: center;
   row-gap: 10px;
   width: 80%;
+}
+@media (max-width: 910px) {
+  .focus-game-wrapper {
+    grid-template-columns: 400px;
+    gap: 30px;
+  }
+  .focus-game-image-wrapper {
+    max-width: 300px;
+  }
 }

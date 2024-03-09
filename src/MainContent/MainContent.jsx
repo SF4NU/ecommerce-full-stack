@@ -52,28 +52,30 @@ function MainContent() {
   return (
     <>
       <section className="game-cards">
-        <div className="search-bar-div">
-          <input
-            value={query}
-            placeholder="Cerca giochi..."
-            type="text"
-            onChange={(e) => {
-              setQuery(e.target.value);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                setCallOnce(!callOnce);
-              }
-            }}
-          />
-          <button
-            className="fetch-games-button"
-            onClick={() => {
-              handleSearch();
-            }}>
-            Cerca
-          </button>
-        </div>
+        {browseToggle && (
+          <div className="search-bar-div">
+            <input
+              value={query}
+              placeholder="Cerca giochi..."
+              type="text"
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setCallOnce(!callOnce);
+                }
+              }}
+            />
+            <button
+              className="fetch-games-button"
+              onClick={() => {
+                handleSearch();
+              }}>
+              Cerca
+            </button>
+          </div>
+        )}
         {browseToggle && data && data.length > 0 && (
           <div className="main-cards-div">
             {data.map((game, index) => (
