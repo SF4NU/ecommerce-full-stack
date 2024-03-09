@@ -64,7 +64,7 @@ function GamePage({
           </div>
           <div className="focus-game-details">
             <span className="rating-esrb">
-              <img src={esrbConverter(rating)}></img>
+              <img className="rating-image" src={esrbConverter(rating)}></img>
             </span>
             <div className="focus-game-details-flex"></div>
             <div>

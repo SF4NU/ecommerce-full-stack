@@ -1,7 +1,18 @@
-export const esrbConverter = (rating) => {
-  return rating === "Mature" ? ratingsURL.mature : false;
-};
+import M from "../../GamePage.jsx/assets/M.svg";
+import T from "../../GamePage.jsx/assets/T.svg";
+import A from "../../GamePage.jsx/assets/A.svg";
+import E from "../../GamePage.jsx/assets/E.svg";
 
-const ratingsURL = {
-  mature: "",
+export const esrbConverter = (rating) => {
+  return rating === "Mature"
+    ? M
+    : rating === "Teen"
+    ? T
+    : rating === "Adults Only"
+    ? A
+    : rating === "Everyone"
+    ? E
+    : rating === null
+    ? E
+    : null;
 };
