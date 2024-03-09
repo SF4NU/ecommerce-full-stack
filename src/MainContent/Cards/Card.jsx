@@ -13,13 +13,26 @@ function Card({
   genre1,
   genre2,
   genre3,
+  setBrowseToggle,
+  setGameId,
+  game_id,
+  setCallOnce,
 }) {
   const [randomPrice, setRandomPrice] = useState(_.random(50, 70));
   const [randomOffer, setRandomOffer] = useState(_.random(10, 50));
+  function handleCardFocus(id) {
+    setBrowseToggle(false);
+    setGameId(id);
+    setCallOnce(false);
+  }
 
   return (
     <>
-      <div className="card">
+      <div
+        className="card"
+        onClick={() => {
+          handleCardFocus(game_id);
+        }}>
         <div className="top-half-card">
           <img className="card-image" src={image} alt="" />
         </div>

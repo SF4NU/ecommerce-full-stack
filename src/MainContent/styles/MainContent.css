@@ -38,7 +38,7 @@
 }
 .search-bar-div input:focus {
   outline: none;
-  scale: 1.1;
+  scale: 1.02;
 }
 .search-bar-div input::placeholder {
   font-size: 1rem;
@@ -93,4 +93,15 @@
   .search-bar-div input {
     width: 40%;
   }
+}
+.focus-game-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.main-page-game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
