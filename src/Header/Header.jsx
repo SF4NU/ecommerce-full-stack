@@ -15,7 +15,10 @@ function Header() {
           <div>Chi siamo</div>
           <div className="profile-div">Profilo</div>
           <div className="hamburger-div">
-            <img className="hamburger" src={hamburger} alt="hamburger-menu"></img>
+            <img
+              className="hamburger"
+              src={hamburger}
+              alt="hamburger-menu"></img>
           </div>
         </div>
       </header>

@@ -7,6 +7,7 @@ import { time } from "../Cards/utils/time";
 import { scrollToTop } from "../Cards/utils/scrollToTop";
 import DOMPurify from "dompurify";
 import { esrbConverter } from "../Cards/utils/esrbConverter";
+import { storesConverter } from "../Cards/utils/storesConverter";
 
 function GamePage({
   gameName,
@@ -39,12 +40,14 @@ function GamePage({
     const scrollAfterMount = async () => {
       await time(200);
       scrollToTop();
-      console.log("done");
-      console.log(rating);
     };
     scrollAfterMount();
   }, []);
-
+  const removeSpaces = (string) => {
+    let newString = "";
+    newString = string.replace(/\s/g, "-");
+    return newString.toLowerCase();
+  };
   const purifiedHTML = DOMPurify.sanitize(description);
 
   return (
@@ -88,18 +91,32 @@ function GamePage({
                   </span>
                 ))}
             </div>
-            {/* <div className="focus-stores-div">
+          </div>
+
+          <div className="focus-game-bottom-details">
+            <div className="focus-stores-div">
+              <span>Dove acquistare: </span>
               {stores.length > 0 &&
                 stores.map((store, index) => (
-                  <span className="stores" key={index}>
-                    {store.store.name}
-                  </span>
+                  <div>
+                    <a
+                      href={`https://${store.store.domain}`}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <img
+                        className={`stores-images ${removeSpaces(
+                          store.store.name
+                        )}-img`}
+                        src={storesConverter(store.store.name)}
+                        alt={`${store.store.name}-img`}
+                      />
+                    </a>
+                  </div>
                 ))}
-            </div> */}
-          </div>
-          <div className="focus-game-bottom-details">
+            </div>
+            <br />
             <div>
-              <span>Descrizione: </span>
+              <span className="description">Descrizione: </span>
               <div dangerouslySetInnerHTML={{ __html: purifiedHTML }}></div>
             </div>
           </div>
