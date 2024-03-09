@@ -121,6 +121,9 @@ function MainContent() {
               stores={data.stores && data.stores.length > 0 ? data.stores : []}
               website={data.website ? data.website : false}
               genres={data.genres && data.genres.length > 0 ? data.genres : []}
+              setBrowseToggle={setBrowseToggle}
+              setGameId={setGameId}
+              setCallOnce={setCallOnce}
             />
           </div>
         )}

@@ -1,3 +1,27 @@
+.focus-game-section {
+  display: flex;
+  flex-direction: column;
+}
+.focus-game-section button {
+  background: linear-gradient(49deg, #15f5ba 0%, #836fff 71%);
+  color: var(--almost-white);
+  font-weight: 600;
+  border-radius: 20px;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: scale 0.4s background 0.2s;
+  cursor: pointer;
+}
+.focus-game-section button:hover {
+  scale: 1.03;
+}
+.focus-game-section button:active {
+  background: var(--russian-purple);
+  color: var(--nice-green);
+}
 .focus-game-wrapper {
   margin-left: auto;
   margin-right: auto;

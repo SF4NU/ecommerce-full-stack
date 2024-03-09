@@ -17,14 +17,28 @@ function GamePage({
   stores,
   website,
   genres,
+  setBrowseToggle,
+  setGameId,
+  setCallOnce,
 }) {
   function cutSpanishText(text, word) {
     const index = text.index;
   }
 
+  function goBack() {
+    setBrowseToggle(true);
+    setCallOnce(false);
+    setGameId(null);
+  }
+
   return (
     <>
       <section className="focus-game-section">
+        <div>
+          <button onClick={goBack} className="go-back-button">
+            Torna indietro
+          </button>
+        </div>
         <div className="focus-game-wrapper">
           <div className="focus-game-image-wrapper">
             <img
