@@ -48,7 +48,7 @@
 }
 .focus-game-details {
   min-height: fit-content;
-  width: 300px;
+  min-width: 300px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
   flex-direction: column;
   background: linear-gradient(49deg, #15f5ba 0%, #836fff 71%);
@@ -73,6 +73,8 @@
   border-radius: 50px;
   font-size: 1rem;
   text-wrap: nowrap;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .focus-game-details-flex {
   margin-top: 20px;
@@ -126,7 +128,8 @@
   }
   .focus-game-details {
     grid-area: 2 / 1 / 3 / 2;
-    margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
     padding: 0;
     padding-bottom: 20px;
   }
@@ -166,8 +169,6 @@
 
   align-items: center;
   justify-content: center;
-}
-.focus-stores-div div {
 }
 .focus-stores-div span {
   font-size: 2rem;

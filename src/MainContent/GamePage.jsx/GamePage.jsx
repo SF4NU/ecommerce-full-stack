@@ -8,6 +8,7 @@ import { scrollToTop } from "../Cards/utils/scrollToTop";
 import DOMPurify from "dompurify";
 import { esrbConverter } from "../Cards/utils/esrbConverter";
 import { storesConverter } from "../Cards/utils/storesConverter";
+import LazyLoad from "react-lazy-load";
 
 function GamePage({
   gameName,
@@ -60,10 +61,12 @@ function GamePage({
         </div>
         <div className="focus-game-wrapper">
           <div className="focus-game-image-wrapper">
-            <img
-              className="focus-game-image"
-              src={image}
-              alt={`${gameName}-image`}></img>
+            <LazyLoad height={200} offset={100}>
+              <img
+                className="focus-game-image"
+                src={image}
+                alt={`${gameName}-image`}></img>
+            </LazyLoad>
           </div>
           <div className="focus-game-details">
             <span className="rating-esrb">

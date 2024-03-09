@@ -38,11 +38,11 @@ function Card({
         onClick={() => {
           handleCardFocus(game_id);
         }}>
-        <div className="top-half-card">
-          <LazyLoad height={200} offset={100}>
+        <LazyLoad height={460} offset={100}>
+          <div className="top-half-card">
             <img className="card-image" src={image} alt={`${name}-image`} />
-          </LazyLoad>
-        </div>
+          </div>
+        </LazyLoad>
         <div className="bottom-half-card">
           <div>
             <span className="span-name">{name}</span>
