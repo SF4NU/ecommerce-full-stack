@@ -3,6 +3,9 @@ import "./styles/Card.css";
 import { shortenPlatforms } from "./utils/shortenPlatforms";
 import _ from "lodash";
 import LazyLoad from "react-lazy-load";
+import { fixedPrices } from "./utils/fixedPrices";
+import { offer } from "./utils/offer";
+import { newPrice } from "./utils/newPrice";
 
 function Card({
   image,
@@ -38,28 +41,31 @@ function Card({
         onClick={() => {
           handleCardFocus(game_id);
         }}>
-        <LazyLoad height={460} offset={100}>
-          <div className="top-half-card">
+        <div className="top-half-card">
+          <LazyLoad height={170} offset={100}>
             <img className="card-image" src={image} alt={`${name}-image`} />
-          </div>
-        </LazyLoad>
+          </LazyLoad>
+        </div>
+
         <div className="bottom-half-card">
           <div>
             <span className="span-name">{name}</span>
-            <div className="meta-score-div">
-              <div>
-                <span>
-                  <img
-                    className="metacritic-logo"
-                    src="https://upload.wikimedia.org/wikipedia/commons/4/48/Metacritic_logo.svg"
-                    alt="metacritic-logo"
-                  />
-                </span>
+            {metacritic && (
+              <div className="meta-score-div">
+                <div>
+                  <span>
+                    <img
+                      className="metacritic-logo"
+                      src="https://upload.wikimedia.org/wikipedia/commons/4/48/Metacritic_logo.svg"
+                      alt="metacritic-logo"
+                    />
+                  </span>
+                </div>
+                <div>
+                  <span className="score">{metacritic}</span>
+                </div>
               </div>
-              <div>
-                <span className="score">{metacritic}</span>
-              </div>
-            </div>
+            )}
           </div>
           <div className="platforms">
             {platforms &&
@@ -70,10 +76,13 @@ function Card({
               ))}
           </div>
           <div>
-            <span className="offer">Sconto {randomOffer}%</span>
+            <span className="offer">Sconto {offer(game_id)}%</span>
           </div>
           <div>
-            <span className="price">{randomPrice}€</span>
+            <span className="price line-through">{fixedPrices(game_id)}€</span>
+            <span className="new-price">
+              {newPrice(fixedPrices(game_id), offer(game_id))}€
+            </span>
           </div>
           <div className="genres-div">
             {genres &&

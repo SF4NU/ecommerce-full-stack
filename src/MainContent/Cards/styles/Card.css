@@ -9,16 +9,15 @@
   position: relative;
   font-weight: 600;
   border-radius: 20px;
-  cursor: pointer;
   transition: filter 0.5s;
-  overflow: hidden;
   user-select: none;
   -moz-user-select: -moz-none;
+  cursor: pointer;
 }
 .card:hover {
   filter: brightness(1.1);
 }
-.card::after {
+/* .card::after {
   content: "";
   position: absolute;
   top: 0;
@@ -30,15 +29,15 @@
   border-radius: 20px;
   transform: translateY(50%);
   transition: transform 0.5s, opacity 0.4s;
-  opacity: 0;
+  opacity: 1;
 }
 .card:active::after {
   transform: translateY(0);
   opacity: 1;
-}
+} */
 
 .top-half-card {
-  height: 55%;
+  height: 150px;
 }
 .card-image {
   object-fit: cover;
@@ -93,7 +92,8 @@
   top: 10px;
   right: 10px;
 }
-.price {
+.price,
+.new-price {
   padding: 5px 10px;
   border-radius: 20px;
   background-color: var(--almost-white);
@@ -101,6 +101,9 @@
   bottom: 8px;
   left: 10px;
   color: var(--russian-purple);
+}
+.price {
+  bottom: -123px;
 }
 .offer {
   padding: 5px 10px;
@@ -118,4 +121,35 @@
   top: 222px;
   align-items: center;
   justify-content: center;
+}
+.new-price {
+  left: 70px;
+  bottom: 3px;
+  color: var(--nice-green);
+  background-color: var(--russian-purple);
+}
+.line-through {
+  position: relative;
+}
+.line-through::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 80%;
+  left: 0;
+  bottom: 50%;
+  background-color: red;
+  margin-left: 4px;
+  transform: rotate(45deg);
+}
+.line-through::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 80%;
+  left: 0;
+  bottom: 50%;
+  background-color: red;
+  margin-left: 4px;
+  transform: rotate(-45deg);
 }

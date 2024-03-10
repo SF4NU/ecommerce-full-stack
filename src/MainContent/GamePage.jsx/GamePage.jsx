@@ -27,10 +27,6 @@ function GamePage({
   setGameId,
   setCallOnce,
 }) {
-  function cutSpanishText(text, word) {
-    const index = text.index;
-  }
-
   function goBack() {
     setBrowseToggle(true);
     setCallOnce(false);
@@ -61,7 +57,7 @@ function GamePage({
         </div>
         <div className="focus-game-wrapper">
           <div className="focus-game-image-wrapper">
-            <LazyLoad offset={100}>
+            <LazyLoad height={300} offset={100}>
               <img
                 className="focus-game-image"
                 src={image}
