@@ -3,15 +3,17 @@ import Card from "./Cards/Card";
 import "./styles/MainContent.css";
 import axios from "axios";
 import GamePage from "./GamePage.jsx/GamePage";
+import Cart from "./Cart/Cart";
 
-function MainContent() {
+function MainContent({ toggleCart }) {
   const KEY = import.meta.env.VITE_API_KEY;
   const [callOnce, setCallOnce] = useState(false);
   const [data, setData] = useState(null);
   const [query, setQuery] = useState("");
-  const [focusCard, setFocusCard] = useState(false);
   const [browseToggle, setBrowseToggle] = useState(true);
   const [gameId, setGameId] = useState(null);
+  const [storeId, setStoreId] = useState([]);
+
   useEffect(() => {
     if (!callOnce) {
       const fetchData = async () => {
@@ -52,7 +54,7 @@ function MainContent() {
   return (
     <>
       <section className="game-cards">
-        {browseToggle && (
+        {browseToggle && !toggleCart && (
           <div className="search-bar-div">
             <input
               value={query}
@@ -76,13 +78,12 @@ function MainContent() {
             </button>
           </div>
         )}
-        {browseToggle && data && data.length > 0 && (
+        {browseToggle && !toggleCart && data && data.length > 0 && (
           <div className="main-cards-div">
             {data.map((game, index) => (
               <Card
                 key={index}
                 setBrowseToggle={setBrowseToggle}
-                setFocusCard={setFocusCard}
                 setGameId={setGameId}
                 image={game.background_image}
                 name={game.name}
@@ -94,6 +95,7 @@ function MainContent() {
                   game.platforms && game.platforms.length >= 0 && game.platforms
                 }
                 genres={game.genres.length > 0 && game.genres}
+                setStoreId={setStoreId}
               />
             ))}
           </div>
@@ -109,8 +111,8 @@ function MainContent() {
               secondImage={data.background_image_additional}
               developers={
                 data.developers && data.developers.length > 0
-                  ? data.developers[0].name
-                  : false
+                  ? data.developers
+                  : []
               }
               rating={data.esrb_rating ? data.esrb_rating.name : null}
               metacritic={data.metacritic ? data.metacritic : false}
@@ -126,10 +128,12 @@ function MainContent() {
               setBrowseToggle={setBrowseToggle}
               setGameId={setGameId}
               setCallOnce={setCallOnce}
+              setStoreId={setStoreId}
             />
           </div>
         )}
       </div>
+      {toggleCart && <Cart storeId={storeId} />}
     </>
   );
 }

@@ -153,3 +153,14 @@
   margin-left: 4px;
   transform: rotate(-45deg);
 }
+.add-to-cart-button {
+  padding: 7px 13px;
+  border-radius: 20px;
+  background-color: var(--almost-white);
+  position: absolute;
+  bottom: 3px;
+  left: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

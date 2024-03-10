@@ -5,11 +5,14 @@ import MainContent from "./MainContent/MainContent";
 import SubHeader from "./SubHeader/SubHeader";
 
 function App() {
+  const [toggleHome, setToggleHome] = useState(true);
+  const [toggleCart, setToggleCart] = useState(false);
+
   return (
     <>
-      <Header />
-      <SubHeader />
-      <MainContent />
+      <Header setToggleHome={setToggleHome} setToggleCart={setToggleCart} />
+      {toggleHome && <SubHeader />}
+      <MainContent toggleCart={toggleCart} />
       <Footer />
     </>
   );

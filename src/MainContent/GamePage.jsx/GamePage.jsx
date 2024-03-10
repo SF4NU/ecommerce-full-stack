@@ -114,6 +114,15 @@ function GamePage({
                 ))}
             </div>
             <br />
+            {website && (
+              <div>
+                <a href={website} target="_blank">
+                  Sito ufficiale
+                </a>{" "}
+                di {gameName}
+              </div>
+            )}
+            <br />
             <div>
               <span className="description">Descrizione: </span>
               <div dangerouslySetInnerHTML={{ __html: purifiedHTML }}></div>

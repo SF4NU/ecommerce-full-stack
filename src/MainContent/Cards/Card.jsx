@@ -6,6 +6,7 @@ import LazyLoad from "react-lazy-load";
 import { fixedPrices } from "./utils/fixedPrices";
 import { offer } from "./utils/offer";
 import { newPrice } from "./utils/newPrice";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 function Card({
   image,
@@ -82,6 +83,9 @@ function Card({
             <span className="price line-through">{fixedPrices(game_id)}€</span>
             <span className="new-price">
               {newPrice(fixedPrices(game_id), offer(game_id))}€
+            </span>
+            <span className="add-to-cart-button">
+              <i className="fa-solid fa-cart-plus"></i>
             </span>
           </div>
           <div className="genres-div">

@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import "./styles/header.css";
 import hamburger from "./assets/hamburger.svg";
-function Header() {
+function Header({ setToggleHome, setToggleCart }) {
+  function goTo() {
+    setToggleHome(false);
+  }
+
+  function toggleCart() {
+    setToggleCart(true);
+  }
+
   return (
     <>
       <header>
@@ -10,10 +18,22 @@ function Header() {
           <div>QuestQuasar</div>
         </div>
         <div className="top-right-header">
-          <div>Home</div>
-          <div>Negozio</div>
-          <div>Chi siamo</div>
-          <div className="profile-div">Profilo</div>
+          <div
+            onClick={() => {
+              setToggleHome(true);
+            }}>
+            Home
+          </div>
+          <div onClick={goTo}>Chi siamo</div>
+          <div
+            onClick={() => {
+              goTo(), toggleCart();
+            }}>
+            Carrello
+          </div>
+          <div className="profile-div" onClick={goTo}>
+            Profilo
+          </div>
           <div className="hamburger-div">
             <img
               className="hamburger"
