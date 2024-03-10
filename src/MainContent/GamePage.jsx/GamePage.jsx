@@ -26,11 +26,13 @@ function GamePage({
   setBrowseToggle,
   setGameId,
   setCallOnce,
+  setToggleHome,
 }) {
   function goBack() {
     setBrowseToggle(true);
     setCallOnce(false);
     setGameId(null);
+    setToggleHome(true);
   }
 
   useEffect(() => {

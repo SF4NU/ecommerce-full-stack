@@ -12,7 +12,6 @@
   transition: filter 0.5s;
   user-select: none;
   -moz-user-select: -moz-none;
-  cursor: pointer;
 }
 .card:hover {
   filter: brightness(1.1);
@@ -45,6 +44,7 @@
   width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  cursor: pointer;
 }
 .span-name {
   background-color: var(--almost-white);
@@ -113,6 +113,7 @@
   position: absolute;
   right: 10px;
   top: 130px;
+  cursor: pointer;
 }
 .genres-div {
   display: flex;
@@ -163,4 +164,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+.add-to-cart-button:hover {
+  color: var(--purple);
+}
+.add-to-cart-button:active {
+  scale: 1.1;
 }

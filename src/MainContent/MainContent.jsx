@@ -5,14 +5,27 @@ import axios from "axios";
 import GamePage from "./GamePage.jsx/GamePage";
 import Cart from "./Cart/Cart";
 
-function MainContent({ toggleCart }) {
+function MainContent({
+  toggleCart,
+  setToggleHome,
+  toggleHome,
+  browseToggle,
+  setBrowseToggle,
+}) {
   const KEY = import.meta.env.VITE_API_KEY;
   const [callOnce, setCallOnce] = useState(false);
   const [data, setData] = useState(null);
   const [query, setQuery] = useState("");
-  const [browseToggle, setBrowseToggle] = useState(true);
   const [gameId, setGameId] = useState(null);
-  const [storeId, setStoreId] = useState([]);
+  const [storeId, setStoreId] = useState(() => {
+    const storedData = localStorage.getItem("storeId");
+    return storedData ? JSON.parse(storedData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("storeId", JSON.stringify(storeId));
+    console.log(storeId);
+  }, [storeId]);
 
   useEffect(() => {
     if (!callOnce) {
@@ -96,6 +109,8 @@ function MainContent({ toggleCart }) {
                 }
                 genres={game.genres.length > 0 && game.genres}
                 setStoreId={setStoreId}
+                setToggleHome={setToggleHome}
+                storeId={storeId}
               />
             ))}
           </div>
@@ -129,11 +144,13 @@ function MainContent({ toggleCart }) {
               setGameId={setGameId}
               setCallOnce={setCallOnce}
               setStoreId={setStoreId}
+              setToggleHome={setToggleHome}
+              storeId={storeId}
             />
           </div>
         )}
       </div>
-      {toggleCart && <Cart storeId={storeId} />}
+      {toggleCart && <Cart storeId={storeId} setStoreId={setStoreId} />}
     </>
   );
 }

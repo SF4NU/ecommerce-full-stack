@@ -7,6 +7,7 @@ import { fixedPrices } from "./utils/fixedPrices";
 import { offer } from "./utils/offer";
 import { newPrice } from "./utils/newPrice";
 import "@fortawesome/fontawesome-free/css/all.css";
+import { v4 as uuidv4 } from "uuid";
 
 function Card({
   image,
@@ -19,6 +20,9 @@ function Card({
   game_id,
   setCallOnce,
   metacritic_url,
+  setToggleHome,
+  setStoreId,
+  storeId,
 }) {
   const [randomPrice, setRandomPrice] = useState(_.random(50, 70));
   const [randomOffer, setRandomOffer] = useState(_.random(10, 50));
@@ -26,6 +30,7 @@ function Card({
     setBrowseToggle(false);
     setGameId(id);
     setCallOnce(false);
+    setToggleHome(false);
   }
 
   // function goToMetacritic(e) {
@@ -35,22 +40,48 @@ function Card({
   //   e.stopPropagation();
   // }
 
+  function generateId() {
+    return uuidv4();
+  }
+
+  function addToCart(id, gameName) {
+    setStoreId((s) => [
+      ...storeId,
+      {
+        id: generateId(),
+        name: gameName,
+        oldPrice: fixedPrices(id),
+        offer: offer(id),
+        updatedPrice: newPrice(fixedPrices(id), offer(id)),
+      },
+    ]);
+  }
+
   return (
     <>
-      <div
-        className="card"
-        onClick={() => {
-          handleCardFocus(game_id);
-        }}>
+      <div className="card">
         <div className="top-half-card">
           <LazyLoad height={170} offset={100}>
-            <img className="card-image" src={image} alt={`${name}-image`} />
+            <img
+              onClick={() => {
+                handleCardFocus(game_id);
+              }}
+              className="card-image"
+              src={image}
+              alt={`${name}-image`}
+            />
           </LazyLoad>
         </div>
 
         <div className="bottom-half-card">
           <div>
-            <span className="span-name">{name}</span>
+            <span
+              onClick={() => {
+                handleCardFocus(game_id);
+              }}
+              className="span-name">
+              {name}
+            </span>
             {metacritic && (
               <div className="meta-score-div">
                 <div>
@@ -77,14 +108,24 @@ function Card({
               ))}
           </div>
           <div>
-            <span className="offer">Sconto {offer(game_id)}%</span>
+            <span
+              onClick={() => {
+                handleCardFocus(game_id);
+              }}
+              className="offer">
+              Sconto {offer(game_id)}%
+            </span>
           </div>
           <div>
             <span className="price line-through">{fixedPrices(game_id)}€</span>
             <span className="new-price">
               {newPrice(fixedPrices(game_id), offer(game_id))}€
             </span>
-            <span className="add-to-cart-button">
+            <span
+              className="add-to-cart-button"
+              onClick={() => {
+                addToCart(game_id, name);
+              }}>
               <i className="fa-solid fa-cart-plus"></i>
             </span>
           </div>

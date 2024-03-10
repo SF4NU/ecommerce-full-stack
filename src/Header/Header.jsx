@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./styles/header.css";
 import hamburger from "./assets/hamburger.svg";
-function Header({ setToggleHome, setToggleCart }) {
+function Header({ setToggleHome, setToggleCart, setBrowseToggle }) {
   function goTo() {
-    setToggleHome(false);
+    setToggleHome(true);
+    setBrowseToggle(true);
+    setToggleCart(false);
   }
 
   function toggleCart() {
     setToggleCart(true);
+    setToggleHome(false);
   }
 
   return (
@@ -20,14 +23,14 @@ function Header({ setToggleHome, setToggleCart }) {
         <div className="top-right-header">
           <div
             onClick={() => {
-              setToggleHome(true);
+              goTo();
             }}>
             Home
           </div>
           <div onClick={goTo}>Chi siamo</div>
           <div
             onClick={() => {
-              goTo(), toggleCart();
+              toggleCart();
             }}>
             Carrello
           </div>
