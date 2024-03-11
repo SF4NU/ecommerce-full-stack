@@ -4,6 +4,7 @@ import "./styles/MainContent.css";
 import axios from "axios";
 import GamePage from "./GamePage.jsx/GamePage";
 import Cart from "./Cart/Cart";
+import About from "./About/About";
 
 function MainContent({
   toggleCart,
@@ -11,6 +12,8 @@ function MainContent({
   toggleHome,
   browseToggle,
   setBrowseToggle,
+  toggleAbout,
+  changeGameIdAndRecall,
 }) {
   const KEY = import.meta.env.VITE_API_KEY;
   const [callOnce, setCallOnce] = useState(false);
@@ -55,6 +58,11 @@ function MainContent({
     }
   }, [callOnce]);
 
+  useEffect(() => {
+    setCallOnce(false);
+    setGameId(null);
+  }, [changeGameIdAndRecall]);
+
   function handleSearch() {
     setCallOnce(!callOnce);
   }
@@ -67,7 +75,7 @@ function MainContent({
   return (
     <>
       <section className="game-cards">
-        {browseToggle && !toggleCart && (
+        {browseToggle && !toggleAbout && !toggleCart && (
           <div className="search-bar-div">
             <input
               value={query}
@@ -91,33 +99,39 @@ function MainContent({
             </button>
           </div>
         )}
-        {browseToggle && !toggleCart && data && data.length > 0 && (
-          <div className="main-cards-div">
-            {data.map((game, index) => (
-              <Card
-                key={index}
-                setBrowseToggle={setBrowseToggle}
-                setGameId={setGameId}
-                image={game.background_image}
-                name={game.name}
-                metacritic={game.metacritic}
-                metacritic_url={game.metacritic_url}
-                game_id={game.id}
-                setCallOnce={setCallOnce}
-                platforms={
-                  game.platforms && game.platforms.length >= 0 && game.platforms
-                }
-                genres={game.genres.length > 0 && game.genres}
-                setStoreId={setStoreId}
-                setToggleHome={setToggleHome}
-                storeId={storeId}
-              />
-            ))}
-          </div>
-        )}
+        {browseToggle &&
+          !toggleCart &&
+          !toggleAbout &&
+          data &&
+          data.length > 0 && (
+            <div className="main-cards-div">
+              {data.map((game, index) => (
+                <Card
+                  key={index}
+                  setBrowseToggle={setBrowseToggle}
+                  setGameId={setGameId}
+                  image={game.background_image}
+                  name={game.name}
+                  metacritic={game.metacritic}
+                  metacritic_url={game.metacritic_url}
+                  game_id={game.id}
+                  setCallOnce={setCallOnce}
+                  platforms={
+                    game.platforms &&
+                    game.platforms.length >= 0 &&
+                    game.platforms
+                  }
+                  genres={game.genres.length > 0 && game.genres}
+                  setStoreId={setStoreId}
+                  setToggleHome={setToggleHome}
+                  storeId={storeId}
+                />
+              ))}
+            </div>
+          )}
       </section>
       <div className="focus-game-section">
-        {!browseToggle && gameId && (
+        {!browseToggle && !toggleCart && !toggleAbout && gameId && (
           <div className="main-page-game">
             <GamePage
               gameName={data.name}
@@ -151,6 +165,7 @@ function MainContent({
         )}
       </div>
       {toggleCart && <Cart storeId={storeId} setStoreId={setStoreId} />}
+      {toggleAbout && <About />}
     </>
   );
 }

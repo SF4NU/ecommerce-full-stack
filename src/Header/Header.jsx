@@ -9,12 +9,11 @@ function Header({
   setBrowseToggle,
   setToggleHeader,
   toggleHeader,
+  setToggleAbout,
+  setChangeGameIdAndRecall,
+  changeGameIdAndRecall,
 }) {
   const sidebarRef = useRef(null);
-  const homeRef = useRef(null);
-  const aboutRef = useRef(null);
-  const cartRef = useRef(null);
-  const profileRef = useRef(null);
 
   const [changeHeaderIcon, setChangeHeaderIcon] = useState(hamburger);
 
@@ -22,10 +21,20 @@ function Header({
     setToggleHome(true);
     setBrowseToggle(true);
     setToggleCart(false);
+    setChangeGameIdAndRecall(!changeGameIdAndRecall);
+    setToggleAbout(false);
   }
 
   function toggleCart() {
     setToggleCart(true);
+    setToggleHome(false);
+    setToggleAbout(false);
+  }
+
+  function toggleAboutComponent() {
+    setToggleCart(false);
+
+    setToggleAbout(true);
     setToggleHome(false);
   }
 
@@ -60,7 +69,7 @@ function Header({
             }}>
             Home
           </div>
-          <div onClick={goTo}>Chi siamo</div>
+          <div onClick={toggleAboutComponent}>Chi siamo</div>
           <div
             onClick={() => {
               toggleCart();
@@ -85,12 +94,17 @@ function Header({
             onClick={() => {
               toggleSideBar();
               goTo();
-            }}
-            ref={homeRef}>
+            }}>
             Home
           </div>
           <hr></hr>
-          <div onClick={goTo}>Chi siamo</div>
+          <div
+            onClick={() => {
+              toggleSideBar();
+              toggleAboutComponent();
+            }}>
+            Chi siamo
+          </div>
           <hr></hr>
           <div
             onClick={() => {

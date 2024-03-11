@@ -1,0 +1,14 @@
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-div {
+  width: clamp(230px, 60%, 500px);
+  height: fit-content;
+  background: linear-gradient(49deg, #15f5ba 0%, #836fff 71%);
+  padding: 35px 30px;
+  border-radius: 30px;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}

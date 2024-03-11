@@ -54,6 +54,13 @@
   position: absolute;
   top: 180px;
   left: 10px;
+  cursor: pointer;
+  transition: filter 0.1s ease;
+}
+.span-name:hover {
+  color: var(--almost-white);
+  background-color: var(--russian-purple);
+  font-weight: 500;
 }
 .metacritic-logo {
   height: 20px;
