@@ -1,7 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./styles/header.css";
 import hamburger from "./assets/hamburger.svg";
-function Header({ setToggleHome, setToggleCart, setBrowseToggle }) {
+import cross from "./assets/cross.svg";
+import { time } from "../MainContent/Cards/utils/time";
+function Header({
+  setToggleHome,
+  setToggleCart,
+  setBrowseToggle,
+  setToggleHeader,
+  toggleHeader,
+}) {
+  const sidebarRef = useRef(null);
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const cartRef = useRef(null);
+  const profileRef = useRef(null);
+
+  const [changeHeaderIcon, setChangeHeaderIcon] = useState(hamburger);
+
   function goTo() {
     setToggleHome(true);
     setBrowseToggle(true);
@@ -13,12 +29,29 @@ function Header({ setToggleHome, setToggleCart, setBrowseToggle }) {
     setToggleHome(false);
   }
 
+  function toggleSideBar() {
+    setToggleHeader(!toggleHeader);
+    sidebarRef.current.classList.toggle("display-side-bar");
+    changeHeaderIcon === hamburger
+      ? setChangeHeaderIcon(cross)
+      : setChangeHeaderIcon(hamburger);
+    const toggleAnimation = async () => {
+      await time(500);
+      homeRef.current.classList.add("display-button");
+    };
+  }
+
   return (
     <>
       <header>
         <div className="top-left-header">
-          <div>LOGO</div>
-          <div>QuestQuasar</div>
+          {/* <div>LOGO</div> */}
+          <div
+            onClick={() => {
+              goTo();
+            }}>
+            QuestQuasar
+          </div>
         </div>
         <div className="top-right-header">
           <div
@@ -40,11 +73,39 @@ function Header({ setToggleHome, setToggleCart, setBrowseToggle }) {
           <div className="hamburger-div">
             <img
               className="hamburger"
-              src={hamburger}
-              alt="hamburger-menu"></img>
+              src={changeHeaderIcon}
+              alt="hamburger-menu"
+              onClick={toggleSideBar}></img>
           </div>
         </div>
       </header>
+      <div ref={sidebarRef} className="side-bar-div">
+        <div className="side-bar-div-container">
+          <div
+            onClick={() => {
+              toggleSideBar();
+              goTo();
+            }}
+            ref={homeRef}>
+            Home
+          </div>
+          <hr></hr>
+          <div onClick={goTo}>Chi siamo</div>
+          <hr></hr>
+          <div
+            onClick={() => {
+              toggleSideBar();
+              toggleCart();
+            }}>
+            Carrello
+          </div>
+          <hr></hr>
+          <div className="profile-div" onClick={goTo}>
+            Profilo
+          </div>
+          <hr />
+        </div>
+      </div>
     </>
   );
 }

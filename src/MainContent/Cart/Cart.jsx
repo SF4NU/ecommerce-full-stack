@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/Cart.css";
+import { time } from "../Cards/utils/time";
+import { scrollToTop } from "../Cards/utils/scrollToTop";
 
 function Cart({ storeId, setStoreId }) {
   function removeItem(id) {
@@ -21,6 +23,14 @@ function Cart({ storeId, setStoreId }) {
       return text;
     }
   }
+
+  useEffect(() => {
+    const scrollAfterMount = async () => {
+      await time(200);
+      scrollToTop();
+    };
+    scrollAfterMount();
+  }, []);
 
   return (
     <>
