@@ -5,6 +5,7 @@ import axios from "axios";
 import GamePage from "./GamePage.jsx/GamePage";
 import Cart from "./Cart/Cart";
 import About from "./About/About";
+import Profile from "./Profile/Profile";
 
 function MainContent({
   toggleCart,
@@ -14,6 +15,7 @@ function MainContent({
   setBrowseToggle,
   toggleAbout,
   changeGameIdAndRecall,
+  toggleProfile,
 }) {
   const KEY = import.meta.env.VITE_API_KEY;
   const [callOnce, setCallOnce] = useState(false);
@@ -75,7 +77,7 @@ function MainContent({
   return (
     <>
       <section className="game-cards">
-        {browseToggle && !toggleAbout && !toggleCart && (
+        {browseToggle && !toggleAbout && !toggleProfile && !toggleCart && (
           <div className="search-bar-div">
             <input
               value={query}
@@ -102,6 +104,7 @@ function MainContent({
         {browseToggle &&
           !toggleCart &&
           !toggleAbout &&
+          !toggleProfile &&
           data &&
           data.length > 0 && (
             <div className="main-cards-div">
@@ -131,41 +134,50 @@ function MainContent({
           )}
       </section>
       <div className="focus-game-section">
-        {!browseToggle && !toggleCart && !toggleAbout && gameId && (
-          <div className="main-page-game">
-            <GamePage
-              gameName={data.name}
-              image={data.background_image}
-              description={data.description}
-              secondImage={data.background_image_additional}
-              developers={
-                data.developers && data.developers.length > 0
-                  ? data.developers
-                  : []
-              }
-              rating={data.esrb_rating ? data.esrb_rating.name : null}
-              metacritic={data.metacritic ? data.metacritic : false}
-              metacritic_url={data.metacritic_url}
-              platforms={
-                data.platforms && data.platforms.length > 0
-                  ? data.platforms
-                  : []
-              }
-              stores={data.stores && data.stores.length > 0 ? data.stores : []}
-              website={data.website ? data.website : false}
-              genres={data.genres && data.genres.length > 0 ? data.genres : []}
-              setBrowseToggle={setBrowseToggle}
-              setGameId={setGameId}
-              setCallOnce={setCallOnce}
-              setStoreId={setStoreId}
-              setToggleHome={setToggleHome}
-              storeId={storeId}
-            />
-          </div>
-        )}
+        {!browseToggle &&
+          !toggleCart &&
+          !toggleProfile &&
+          !toggleAbout &&
+          gameId && (
+            <div className="main-page-game">
+              <GamePage
+                gameName={data.name}
+                image={data.background_image}
+                description={data.description}
+                secondImage={data.background_image_additional}
+                developers={
+                  data.developers && data.developers.length > 0
+                    ? data.developers
+                    : []
+                }
+                rating={data.esrb_rating ? data.esrb_rating.name : null}
+                metacritic={data.metacritic ? data.metacritic : false}
+                metacritic_url={data.metacritic_url}
+                platforms={
+                  data.platforms && data.platforms.length > 0
+                    ? data.platforms
+                    : []
+                }
+                stores={
+                  data.stores && data.stores.length > 0 ? data.stores : []
+                }
+                website={data.website ? data.website : false}
+                genres={
+                  data.genres && data.genres.length > 0 ? data.genres : []
+                }
+                setBrowseToggle={setBrowseToggle}
+                setGameId={setGameId}
+                setCallOnce={setCallOnce}
+                setStoreId={setStoreId}
+                setToggleHome={setToggleHome}
+                storeId={storeId}
+              />
+            </div>
+          )}
       </div>
       {toggleCart && <Cart storeId={storeId} setStoreId={setStoreId} />}
       {toggleAbout && <About />}
+      {toggleProfile && <Profile />}
     </>
   );
 }

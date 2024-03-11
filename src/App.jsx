@@ -11,6 +11,7 @@ function App() {
   const [toggleHeader, setToggleHeader] = useState(false);
   const [toggleAbout, setToggleAbout] = useState(false);
   const [changeGameIdAndRecall, setChangeGameIdAndRecall] = useState(null);
+  const [toggleProfile, setToggleProfile] = useState(false);
 
   return (
     <>
@@ -21,9 +22,9 @@ function App() {
         setToggleHeader={setToggleHeader}
         toggleHeader={toggleHeader}
         setToggleAbout={setToggleAbout}
-        toggleAbout={toggleAbout}
         setChangeGameIdAndRecall={setChangeGameIdAndRecall}
         changeGameIdAndRecall={changeGameIdAndRecall}
+        setToggleProfile={setToggleProfile}
       />
       {toggleHome && !toggleHeader && <SubHeader />}
       {!toggleHeader && (
@@ -35,6 +36,7 @@ function App() {
           browseToggle={browseToggle}
           toggleAbout={toggleAbout}
           changeGameIdAndRecall={changeGameIdAndRecall}
+          toggleProfile={toggleProfile}
         />
       )}
       {!toggleHeader && <Footer />}

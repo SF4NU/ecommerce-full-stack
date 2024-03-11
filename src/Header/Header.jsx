@@ -12,6 +12,7 @@ function Header({
   setToggleAbout,
   setChangeGameIdAndRecall,
   changeGameIdAndRecall,
+  setToggleProfile,
 }) {
   const sidebarRef = useRef(null);
 
@@ -23,18 +24,28 @@ function Header({
     setToggleCart(false);
     setChangeGameIdAndRecall(!changeGameIdAndRecall);
     setToggleAbout(false);
+    setToggleProfile(false);
   }
 
   function toggleCart() {
     setToggleCart(true);
     setToggleHome(false);
     setToggleAbout(false);
+    setToggleProfile(false);
   }
 
   function toggleAboutComponent() {
     setToggleCart(false);
+    setToggleProfile(false);
 
     setToggleAbout(true);
+    setToggleHome(false);
+  }
+
+  function toggleProfileComponent() {
+    setToggleCart(false);
+    setToggleProfile(true);
+    setToggleAbout(false);
     setToggleHome(false);
   }
 
@@ -76,7 +87,11 @@ function Header({
             }}>
             Carrello
           </div>
-          <div className="profile-div" onClick={goTo}>
+          <div
+            className="profile-div"
+            onClick={() => {
+              toggleProfileComponent();
+            }}>
             Profilo
           </div>
           <div className="hamburger-div">

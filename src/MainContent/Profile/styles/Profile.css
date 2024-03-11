@@ -1,0 +1,58 @@
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-bottom: 300px;
+}
+.profile-div-registration {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  width: 300px;
+  background: linear-gradient(49deg, #15f5ba 0%, #836fff 71%);
+  place-self: center center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  user-select: none;
+}
+.registration-title {
+  justify-self: top;
+}
+.form-registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 35px;
+  margin-bottom: 20px;
+}
+.form-registration button {
+  margin-top: 25px;
+  background-color: var(--almost-white);
+  border: none;
+  font-family: Anta, Arial;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  color: black;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.form-registration button:hover {
+  filter: invert();
+}
+.form-registration button:active {
+  background: none;
+  filter: hue-rotate();
+}
+.form-registration input {
+  padding: 5px 25px;
+  border: none;
+  border-radius: 25px;
+}
+.form-registration input:focus {
+  outline-color: var(--nice-green);
+}
